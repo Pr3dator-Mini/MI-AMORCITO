@@ -13,7 +13,7 @@ date_default_timezone_set('America/El_Salvador');
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2 family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
@@ -36,6 +36,16 @@ color:#6b1130;
 position:relative;
 }
 
+/* ================= CANVAS DE FUEGOS ARTIFICIALES ================= */
+#fireworksCanvas {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+pointer-events: none;
+z-index: 3; /* Por encima del fondo pero interactivo visualmente */
+}
 
 /* ================= ESTRELLAS ================= */
 .stars{
@@ -78,18 +88,18 @@ border-radius: 10px;
 
 .map-line-fill {
 width: 100%;
-height: 0%; /* Se llena con JavaScript al hacer scroll */
+height: 0%; 
 background: linear-gradient(to bottom, #ff4f81, #6b1130);
 position: absolute;
 top: 0;
 left: 0;
 border-radius: 10px;
-box-shadow: 0 0 15px #ff4f81;
+box-shadow: 0 0 20px #ff4f81, 0 0 35px #ff7ca8;
 transition: height 0.1s ease-out;
 }
 
 
-/* ================= HERO (CARTA INICIAL) ================= */
+/* ================= HERO (DISEÑO CARTA DE AMOR REALISTA) ================= */
 .hero{
 min-height:100vh;
 display:flex;
@@ -97,7 +107,7 @@ justify-content:center;
 align-items:center;
 padding:30px;
 position:relative;
-z-index:2;
+z-index:4;
 }
 
 .envelope {
@@ -197,8 +207,6 @@ color: #6b1130;
 text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
 }
 
-
-/* TARJETAS ASIMÉTRICAS PRO */
 .card {
 max-width: 850px;
 width: 100%;
@@ -211,19 +219,16 @@ line-height: 2;
 font-size: 20px;
 box-shadow: 0 15px 35px rgba(107, 17, 48, 0.06);
 border: 1px solid rgba(255, 255, 255, 0.5);
-
-/* Forma asimétrica única */
 border-radius: 50px 20px 80px 40px;
 position: relative;
 }
 
-/* Alternamos las formas en las tarjetas siguientes para dar dinamismo */
 .section:nth-child(even) .card {
 border-radius: 30px 90px 40px 70px;
 }
 
 
-/* ================= CONTADOR MEJORADO (CON SEGUNDOS) ================= */
+/* ================= CONTADOR MEJORADO ================= */
 .contador-card {
 text-align: center;
 }
@@ -404,13 +409,6 @@ animation: subir 8s linear forwards;
 }
 
 
-/* ================= YOUTUBE OCULTO ================= */
-#youtube-player {
-position: fixed;
-left: -9999px;
-}
-
-
 /* ================= SCROLLBAR ================= */
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: #ffd6e7; }
@@ -430,21 +428,30 @@ to { opacity: 1; transform: translateY(0); }
 .card { font-size: 18px; padding: 35px 25px; }
 .final-title { font-size: 45px; }
 .gift-box { width: 90px; height: 90px; font-size: 35px; }
-.map-progress-container { left: 15px; transform: none; width: 4px; } /* Se mueve a un lado en móviles */
+.map-progress-container { left: 15px; transform: none; width: 4px; }
 }
 </style>
 </head>
 <body>
 
+<!-- AUDIO DE FONDO DIRECTO (Asegura arranque inmediato al interactuar o cargar) -->
+<audio id="bg-music" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop autoplay></audio>
+
+<!-- CANVAS FUEGOS ARTIFICIALES -->
+<canvas id="fireworksCanvas"></canvas>
+
+<!-- ESTRELLAS Y ELEMENTOS FLOTANTES -->
 <div class="stars"></div>
 <div id="heart-container"></div>
 
+<!-- LÍNEA CONECTORA DE MAPA PRO -->
 <div class="map-progress-container">
     <div class="map-line-bg"></div>
     <div class="map-line-fill" id="mapLine"></div>
 </div>
 
 
+<!-- ================= HERO ================= -->
 <section class="hero">
 
     <div class="envelope">
@@ -461,7 +468,7 @@ to { opacity: 1; transform: translateY(0); }
                 <h2>Paul ❤️</h2>
             </div>
 
-            <button class="open-btn" onclick="abrirCarta()">
+            <button class="open-btn" onclick="document.getElementById('intro').scrollIntoView(); intentaloTocarAudio();">
                 Abrir Carta ✨
             </button>
         </div>
@@ -470,6 +477,7 @@ to { opacity: 1; transform: translateY(0); }
 </section>
 
 
+<!-- ================= INTRO ================= -->
 <section class="section" id="intro">
 
     <h2 class="title">
@@ -493,6 +501,7 @@ to { opacity: 1; transform: translateY(0); }
 </section>
 
 
+<!-- ================= CUMPLEAÑOS ================= -->
 <section class="section">
 
     <h2 class="title">
@@ -514,6 +523,7 @@ to { opacity: 1; transform: translateY(0); }
 </section>
 
 
+<!-- ================= CONTADOR EN TIEMPO REAL ================= -->
 <section class="section">
 
     <h2 class="title">
@@ -540,6 +550,7 @@ to { opacity: 1; transform: translateY(0); }
 </section>
 
 
+<!-- ================= MAPA DEL AMOR ================= -->
 <section class="section">
 
 <h2 class="title">
@@ -568,6 +579,7 @@ to { opacity: 1; transform: translateY(0); }
 </section>
 
 
+<!-- ================= SORPRESAS ================= -->
 <section class="section">
 
 <h2 class="title">
@@ -587,6 +599,7 @@ to { opacity: 1; transform: translateY(0); }
 </section>
 
 
+<!-- ================= FRASES PERIÓDICAS ================= -->
 <section class="section">
 
 <h2 class="title">
@@ -602,6 +615,7 @@ to { opacity: 1; transform: translateY(0); }
 </section>
 
 
+<!-- ================= BOTÓN SECRETO ================= -->
 <section class="section">
 
 <h2 class="title">
@@ -628,6 +642,7 @@ to { opacity: 1; transform: translateY(0); }
 </section>
 
 
+<!-- ================= FINAL ================= -->
 <section class="section final-section">
 
 <h1 class="final-title">
@@ -654,35 +669,95 @@ to { opacity: 1; transform: translateY(0); }
 
 </section>
 
-
-<div id="youtube-player"></div>
-
-<script src="https://www.youtube.com/iframe_api"></script>
-
 <script>
-let player;
+/* ================= CONTROL DE AUDIO AUTOMÁTICO BEYOND BROWSER BLOCKS ================= */
+const audio = document.getElementById('bg-music');
 
-function onYouTubeIframeAPIReady(){
-    player = new YT.Player('youtube-player',{
-        height:'0',
-        width:'0',
-        videoId:'a3hOeU7w59o',
-        playerVars:{
-            autoplay:0, 
-            loop:1,
-            playlist:'a3hOeU7w59o'
-        }
-    });
+function intentaloTocarAudio() {
+    audio.play().catch(e => console.log("El navegador requiere interacción previa"));
 }
 
-function abrirCarta(){
-    document.getElementById('intro').scrollIntoView();
-    if(player && typeof player.playVideo === 'function') {
-        player.playVideo(); 
+// Intentar reproducir inmediatamente al mover el mouse o tocar la pantalla (por si entra sin pulsar el botón)
+window.addEventListener('click', intentaloTocarAudio, { once: true });
+window.addEventListener('touchstart', intentaloTocarAudio, { once: true });
+
+
+/* ================= SISTEMA PRO DE FUEGOS ARTIFICIALES ================= */
+const canvas = document.getElementById('fireworksCanvas');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+class Particle {
+    constructor(x, y, color) {
+        this.x = x;
+        this.y = y;
+        this.color = color;
+        this.radius = Math.random() * 3 + 1;
+        this.velocity = {
+            x: (Math.random() - 0.5) * 8,
+            y: (Math.random() - 0.5) * 8
+        };
+        this.alpha = 1;
+        this.decay = Math.random() * 0.015 + 0.015;
+    }
+
+    draw() {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+        ctx.fill();
+        ctx.restore();
+    }
+
+    update() {
+        this.velocity.y += 0.05; // Gravedad leve
+        this.x += this.velocity.x;
+        this.y += this.velocity.y;
+        this.alpha -= this.decay;
     }
 }
 
-/* ================= DETECTAR SCROLL PARA LLENAR LA LÍNEA DEL MAPA (EFECTO PRO) ================= */
+let fireworksArray = [];
+
+function createFirework() {
+    const x = Math.random() * canvas.width;
+    const y = Math.random() * (canvas.height * 0.6);
+    const colors = ['#ff4f81', '#ff7ca8', '#6b1130', '#ffd6e7', '#e8d7ff', '#ffffc2'];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+    for (let i = 0; i < 40; i++) {
+        fireworksArray.push(new Particle(x, y, randomColor));
+    }
+}
+
+function animateFireworks() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    fireworksArray = fireworksArray.filter(p => p.alpha > 0);
+    fireworksArray.forEach(p => {
+        p.update();
+        p.draw();
+    });
+
+    requestAnimationFrame(animateFireworks);
+}
+animateFireworks();
+
+// Lanzar fuegos artificiales de forma continua automáticamente cada cierto tiempo
+setInterval(createFirework, 1500);
+
+
+/* ================= DETECTAR SCROLL PARA LLENAR LA LÍNEA DEL MAPA ================= */
 window.addEventListener('scroll', () => {
     const mapLine = document.getElementById('mapLine');
     const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
@@ -691,14 +766,13 @@ window.addEventListener('scroll', () => {
 });
 
 
-/* ================= CONTADOR ULTRA COMPLETO HASTA SEGUNDOS EN TIEMPO REAL ================= */
+/* ================= CONTADOR ULTRA COMPLETO ================= */
 function actualizarContadorExacto(){
     const fechaInicio = new Date("2021-07-15T00:00:00");
     const ahora = new Date();
     
     let diffMili = ahora - fechaInicio;
     
-    // Cálculos exactos basados en tiempo real
     let totalSegundos = Math.floor(diffMili / 1000);
     let totalDias = Math.floor(totalSegundos / (60 * 60 * 24));
     
@@ -724,18 +798,16 @@ function actualizarContadorExacto(){
     if (minutos < 0) { minutos += 60; horas--; }
     if (horas < 0) { horas += 24; dias--; }
 
-    // Inyectar en las cajitas animadas
     document.getElementById("c-anos").innerText = anos;
     document.getElementById("c-meses").innerText = meses;
     document.getElementById("c-dias").innerText = dias;
     document.getElementById("c-horas").innerText = horas < 10 ? '0' + horas : horas;
-    document.getElementById("c-minutos").innerText = minutos < 10 ? '0' + minutos : minutos;
+    document.getElementById("c-minutos").innerText = minutos < 10 ? '0' + minutos : minutes;
     document.getElementById("c-segundos").innerText = segundos < 10 ? '0' + segundos : segundos;
     
     document.getElementById("totalDiasText").innerHTML = `💕 Más de ${totalDias} días amándote al máximo`;
 }
 
-// Actualización continua cada segundo
 setInterval(actualizarContadorExacto, 1000);
 actualizarContadorExacto();
 
