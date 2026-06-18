@@ -36,7 +36,7 @@ background:
 linear-gradient(135deg,#ff9ec7,#ffd6e7,#e8d7ff);
 
 overflow-x:hidden;
-color:white;
+color:#6b1130; /* Color de letra más alegre, romántico y con contraste */
 position:relative;
 
 }
@@ -202,6 +202,7 @@ text-align:center;
 margin-bottom:40px;
 
 font-family:'Great Vibes',cursive;
+color:#6b1130;
 
 }
 
@@ -218,7 +219,7 @@ padding:40px;
 
 border-radius:30px;
 
-background:rgba(255,255,255,.15);
+background:rgba(255,255,255,.4); /* Un toque más opaco para mejor contraste */
 
 backdrop-filter:blur(15px);
 
@@ -273,7 +274,7 @@ gap:25px;
 
 padding:25px;
 
-background:rgba(255,255,255,.18);
+background:rgba(255,255,255,.3);
 
 border-radius:20px;
 
@@ -284,6 +285,7 @@ font-size:22px;
 text-align:center;
 
 transition:.4s;
+color:#6b1130;
 
 }
 
@@ -292,7 +294,7 @@ transition:.4s;
 
 transform:scale(1.03);
 
-background:rgba(255,255,255,.3);
+background:rgba(255,255,255,.5);
 
 }
 
@@ -429,7 +431,7 @@ border-radius:25px;
 
 cursor:pointer;
 
-background:rgba(255,255,255,.18);
+background:rgba(255,255,255,.3);
 
 backdrop-filter:blur(15px);
 
@@ -655,8 +657,8 @@ height:260px;
             <h3>De:</h3>
             <h2>Paul ❤️</h2>
 
-            <button class="open-btn"
-            onclick="document.getElementById('intro').scrollIntoView()">
+            <!-- Al hacer clic aquí se abrirá la sección y se reproducirá la música -->
+            <button class="open-btn" onclick="abrirCarta()">
 
                 Abrir Carta ✨
 
@@ -944,39 +946,6 @@ Presiona una cajita 🎁
 </section>
 
 
-<!-- ================= ORACIÓN ================= -->
-
-<section class="section">
-
-<h2 class="title">
-🙏 Una oración para ti 🙏
-</h2>
-
-<div class="card">
-
-<p>
-
-Deseo de todo corazón que Jehová te cuide, te bendiga y te ayude a cumplir todos tus sueños.
-
-<br><br>
-
-Que nunca te falte salud, alegría y motivos para sonreír.
-
-<br><br>
-
-Y que siempre puedas sentir cuánto te aman las personas que te rodean.
-
-<br><br>
-
-❤️🌷🙏
-
-</p>
-
-</div>
-
-</section>
-
-
 <!-- ================= BOTÓN SECRETO ================= -->
 
 <section class="section">
@@ -1094,13 +1063,21 @@ width:'0',
 videoId:'a3hOeU7w59o',
 
 playerVars:{
-autoplay:1,
+autoplay:0, // Cambiado a 0 inicialmente para controlarlo por el botón
 loop:1,
 playlist:'a3hOeU7w59o'
 }
 
 });
 
+}
+
+// Nueva función que se activa al abrir la carta
+function abrirCarta(){
+    document.getElementById('intro').scrollIntoView();
+    if(player && typeof player.playVideo === 'function') {
+        player.playVideo(); // Inicia la música cuando ella hace interacción
+    }
 }
 </script>
 <script>
