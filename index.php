@@ -30,26 +30,25 @@ html{
 
 body{
     font-family:'Poppins',sans-serif;
-    background: linear-gradient(135deg,#ff9ec7,#ffd6e7,#e8d7ff);
+    background: linear-gradient(135deg, #1a0813, #2c1124, #120518); /* Fondo más oscuro para que resalte el Ultra Neón */
     overflow-x:hidden;
-    color:#6b1130; 
+    color:#ffe3ec; 
     position:relative;
 }
 
-/* ================= INTRO OSCURA Y FUEGOS ARTIFICIALES REALISTAS ================= */
+/* ================= INTRO OSCURA Y FUEGOS ARTIFICIALES CHINOS ================= */
 #intro-oscura {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #0a050d;
+    background: #050206;
     z-index: 5;
     transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s ease;
     pointer-events: all;
 }
 
-/* Cuando se abre la carta, se desvanece por completo */
 .pagina-activa #intro-oscura {
     opacity: 0;
     pointer-events: none;
@@ -79,16 +78,16 @@ body{
     radial-gradient(white 1px, transparent 1px),
     radial-gradient(white 1px, transparent 1px);
     background-size:80px 80px;
-    opacity:.2;
+    opacity:.15;
 }
 
-/* ================= LÍNEA DE MAPA NEÓN DINÁMICA ================= */
+/* ================= LÍNEA DE MAPA ULTRA NEÓN ================= */
 .map-progress-container {
     position: fixed;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 6px;
+    width: 8px;
     height: 100vh;
     z-index: 1;
     pointer-events: none;
@@ -97,7 +96,7 @@ body{
 .map-line-bg {
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.08);
     position: absolute;
     top: 0;
     left: 0;
@@ -107,16 +106,16 @@ body{
 .map-line-fill {
     width: 100%;
     height: 0%; 
-    background: linear-gradient(to bottom, #ff4f81, #6b1130);
+    background: linear-gradient(to bottom, #ff0055, #ff5599, #b30047);
     position: absolute;
     top: 0;
     left: 0;
     border-radius: 10px;
-    box-shadow: 0 0 15px #ff4f81, 0 0 30px #ff7ca8;
+    box-shadow: 0 0 15px #ff0055, 0 0 30px #ff5599, 0 0 45px #ff0055;
     transition: height 0.1s ease-out;
 }
 
-/* ================= HERO (SOBRE FLOTANDO EN LA INTRO) ================= */
+/* ================= HERO (CARTA SOBRE LA NOCHE DE FUEGOS) ================= */
 .hero{
     min-height:100vh;
     display:flex;
@@ -124,29 +123,29 @@ body{
     align-items:center;
     padding:30px;
     position: relative;
-    z-index: 10; /* Por encima de la capa oscura para que sea clickeable */
+    z-index: 10;
 }
 
 .envelope {
-    background: #fffdf6; 
-    padding: 40px 30px;
+    background: #fffdf9; 
+    padding: 45px 35px;
     width: 100%;
-    max-width: 420px;
-    border-radius: 4px;
+    max-width: 430px;
+    border-radius: 8px;
     box-shadow: 
-        0 0 0 8px #fffdf6, 
-        0 0 0 12px #ff4f81, 
-        0 0 30px rgba(255, 79, 129, 0.6),
-        0 20px 50px rgba(0,0,0,0.5); 
-    color: #4a3b32;
+        0 0 0 6px #fffdf9, 
+        0 0 0 12px #ff0055, 
+        0 0 40px rgba(255, 0, 85, 0.8),
+        0 25px 60px rgba(0,0,0,0.7); 
+    color: #382c24;
     animation: flotar 3s ease-in-out infinite;
     text-align: center;
     position: relative;
-    border: 1px dashed #ff7ca8;
+    border: 2px dashed #ff4f81;
 }
 
 @keyframes flotar{
-    50%{ transform:translateY(-12px); }
+    50%{ transform:translateY(-15px); }
 }
 
 .letter-header {
@@ -156,33 +155,33 @@ body{
 }
 
 .letter h1 {
-    font-size: 45px;
+    font-size: 48px;
     font-family: 'Great Vibes', cursive;
-    color: #ff4f81;
+    color: #ff0055;
     margin-top: 5px;
-    text-shadow: 0 0 10px rgba(255, 79, 129, 0.3);
+    text-shadow: 0 0 10px rgba(255, 0, 85, 0.2);
 }
 
 .letter h2 {
-    font-size: 38px;
+    font-size: 40px;
     font-family: 'Great Vibes', cursive;
-    color: #6b1130;
+    color: #520922;
     margin-top: 5px;
 }
 
 .letter h3 {
-    font-size: 14px;
+    font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     color: #8c7b70;
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .mini {
     font-size: 13px;
-    color: #ff4f81;
-    font-weight: 600;
-    letter-spacing: 1px;
+    color: #ff0055;
+    font-weight: 700;
+    letter-spacing: 2px;
     display: block;
     margin-bottom: 15px;
 }
@@ -190,26 +189,28 @@ body{
 .open-btn{
     margin-top: 25px;
     border: none;
-    padding: 15px 35px;
+    padding: 16px 40px;
     border-radius: 50px;
     cursor: pointer;
     font-size: 16px;
-    font-weight: 500;
-    background: #ff4f81;
+    font-weight: 600;
+    background: #ff0055;
     color: white;
     transition: .4s;
-    box-shadow: 0 0 15px rgba(255, 79, 129, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 20px #ff0055, 0 0 40px rgba(255, 0, 85, 0.5);
 }
 
 .open-btn:hover{
     transform: scale(1.05);
-    background: #e63668;
-    box-shadow: 0 0 25px rgba(255, 79, 129, 0.9);
+    background: #ff2a75;
+    box-shadow: 0 0 30px #ff0055, 0 0 60px #ff2a75;
 }
 
-/* ================= SECCIONES CON DISEÑO ASIMÉTRICO NEÓN LIMPIO ================= */
+/* ================= SECCIONES CON DISEÑO ASIMÉTRICO ULTRA NEÓN ================= */
 .section {
-    padding: 120px 25px;
+    padding: 130px 25px;
     position: relative;
     z-index: 2;
     display: flex;
@@ -218,79 +219,104 @@ body{
 }
 
 .title {
-    font-size: 50px;
+    font-size: 55px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     font-family: 'Great Vibes', cursive;
-    color: #6b1130;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+    color: #fff;
+    /* Efecto Letrero Neón */
+    text-shadow: 
+        0 0 10px #ff0055,
+        0 0 20px #ff0055,
+        0 0 40px #ff5599,
+        0 0 60px #ff0055;
 }
 
 .card {
     max-width: 850px;
     width: 100%;
     margin: auto;
-    padding: 50px 40px;
-    background: rgba(255, 255, 255, 0.55); 
+    padding: 55px 45px;
+    background: rgba(25, 10, 22, 0.75); /* Fondo oscuro interno para perfecta lectura del texto */
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     line-height: 2;
-    font-size: 20px;
-    box-shadow: 0 15px 35px rgba(107, 17, 48, 0.05), 0 0 25px rgba(255, 255, 255, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 50px 20px 80px 40px;
+    font-size: 21px;
+    color: #ffe8f0;
+    
+    /* Borde Neón Sólido y Resplandeciente */
+    border: 3px solid #ff0055;
+    box-shadow: 
+        0 0 15px rgba(255, 0, 85, 0.4), 
+        0 15px 35px rgba(0, 0, 0, 0.6),
+        inset 0 0 20px rgba(255, 0, 85, 0.2);
+    
+    border-radius: 60px 25px 90px 35px;
     position: relative;
 }
 
 .section:nth-child(even) .card {
-    border-radius: 30px 90px 40px 70px;
+    border: 3px solid #ff5599;
+    box-shadow: 
+        0 0 15px rgba(255, 85, 153, 0.4), 
+        0 15px 35px rgba(0, 0, 0, 0.6),
+        inset 0 0 20px rgba(255, 85, 153, 0.2);
+    border-radius: 35px 100px 45px 80px;
 }
 
-/* ================= CONTADOR MEJORADO ================= */
+/* ================= CONTADOR MEJORADO ULTRA NEÓN ================= */
 .contador-card {
     text-align: center;
 }
 
 .live-counter-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 15px;
-    margin-top: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 18px;
+    margin-top: 20px;
 }
 
 .counter-box {
-    background: rgba(255, 255, 255, 0.5);
-    padding: 15px 10px;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.7);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.01);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px 10px;
+    border-radius: 22px;
+    border: 2px solid rgba(255, 0, 85, 0.5);
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.2);
+    transition: 0.3s;
+}
+
+.counter-box:hover {
+    border-color: #ff0055;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.6);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .counter-box span {
     display: block;
-    font-size: 30px;
+    font-size: 34px;
     font-weight: 700;
-    color: #ff4f81;
+    color: #fff;
     line-height: 1.2;
-    text-shadow: 0 0 10px rgba(255, 79, 129, 0.2);
+    text-shadow: 0 0 10px #ff0055, 0 0 20px #ff5599;
 }
 
 .counter-box label {
     font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-weight: 500;
-    color: #6b1130;
+    letter-spacing: 2px;
+    font-weight: 600;
+    color: #ffb3cd;
 }
 
 .counter-footer {
-    margin-top: 25px;
+    margin-top: 30px;
     font-weight: 600;
-    font-size: 22px;
-    color: #6b1130;
+    font-size: 24px;
+    color: #fff;
+    text-shadow: 0 0 10px #ff5599;
     display: inline-block;
-    border-top: 2px dashed rgba(255, 79, 129, 0.3);
-    padding-top: 15px;
+    border-top: 2px dashed rgba(255, 0, 85, 0.4);
+    padding-top: 20px;
     width: 100%;
 }
 
@@ -306,20 +332,23 @@ body{
 
 .timeline-item {
     padding: 25px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 40px 15px 40px 15px;
     cursor: pointer;
     font-size: 22px;
     text-align: center;
     transition: .4s;
-    color: #6b1130;
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    color: #ffe3ec;
+    border: 2px solid rgba(255, 0, 85, 0.4);
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.1);
 }
 
 .timeline-item:hover {
     transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 10px 25px rgba(255, 79, 129, 0.15);
+    background: rgba(255, 0, 85, 0.15);
+    color: #fff;
+    border-color: #ff0055;
+    box-shadow: 0 0 20px #ff0055, 0 0 40px rgba(255, 0, 85, 0.3);
 }
 
 .recuerdo {
@@ -336,6 +365,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #fff;
+    text-shadow: 0 0 10px #ff5599;
 }
 
 /* ================= MENSAJE SECRETO ================= */
@@ -345,6 +376,8 @@ body{
     line-height: 2;
     text-align: center;
     animation: fadeIn 0.8s ease forwards;
+    color: #fff;
+    text-shadow: 0 0 15px #ff0055;
 }
 
 /* ================= CAJAS SORPRESA ================= */
@@ -364,16 +397,17 @@ body{
     font-size: 45px;
     border-radius: 30px 10px 30px 10px;
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.05);
     transition: .4s;
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    border: 2px solid #ff0055;
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.3);
 }
 
 .gift-box:hover {
     transform: scale(1.1) rotate(5deg);
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 0 20px rgba(255, 79, 129, 0.2);
+    background: rgba(255, 0, 85, 0.2);
+    border-color: #ff5599;
+    box-shadow: 0 0 25px #ff5599, 0 0 45px rgba(255, 0, 85, 0.4);
 }
 
 /* ================= BOTÓN SECRETO ================= */
@@ -383,15 +417,16 @@ body{
     border-radius: 50px;
     cursor: pointer;
     font-size: 20px;
-    background: #ff4f81;
+    font-weight: 600;
+    background: #ff0055;
     color: white;
     transition: .4s;
-    box-shadow: 0 5px 15px rgba(255, 79, 129, 0.3);
+    box-shadow: 0 0 20px #ff0055;
 }
 
 .secret-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(255, 79, 129, 0.5);
+    box-shadow: 0 0 30px #ff0055, 0 0 50px #ff5599;
 }
 
 /* ================= FINAL ================= */
@@ -401,9 +436,11 @@ body{
 
 .final-title {
     text-align: center;
-    font-size: 60px;
+    font-size: 65px;
     font-family: 'Great Vibes', cursive;
     margin-bottom: 40px;
+    color: #fff;
+    text-shadow: 0 0 20px #ff0055, 0 0 40px #ff5599;
 }
 
 /* ================= CORAZONES SIEMPRE ACTIVOS ================= */
@@ -411,12 +448,12 @@ body{
     position: fixed;
     bottom: -50px;
     pointer-events: none;
-    z-index: 1; /* Por detrás de las tarjetas y la intro */
+    z-index: 1; 
     animation: subir 8s linear forwards;
 }
 
 @keyframes subir {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
     100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
 }
 
@@ -428,8 +465,8 @@ body{
 
 /* ================= SCROLLBAR ================= */
 ::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: #ffd6e7; }
-::-webkit-scrollbar-thumb { background: #ff4f81; border-radius: 20px; }
+::-webkit-scrollbar-track { background: #1a0813; }
+::-webkit-scrollbar-thumb { background: #ff0055; border-radius: 20px; box-shadow: 0 0 10px #ff0055; }
 
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(15px); }
@@ -438,11 +475,11 @@ body{
 
 /* ================= RESPONSIVE ================= */
 @media(max-width:768px){
-    .title { font-size: 38px; }
-    .card { font-size: 18px; padding: 35px 25px; }
-    .final-title { font-size: 45px; }
+    .title { font-size: 42px; }
+    .card { font-size: 19px; padding: 35px 25px; }
+    .final-title { font-size: 50px; }
     .gift-box { width: 90px; height: 90px; font-size: 35px; }
-    .map-progress-container { left: 15px; transform: none; width: 4px; }
+    .map-progress-container { left: 15px; transform: none; width: 5px; }
 }
 </style>
 </head>
@@ -456,10 +493,10 @@ body{
 <!-- REPRODUCTOR ORIGINAL DE YOUTUBE OCULTO -->
 <div id="youtube-player"></div>
 
-<!-- ESTRELLAS Y CAPA DE CORAZONES (Siempre activos al fondo) -->
+<!-- ESTRELLAS Y CAPA DE CORAZONES -->
 <div class="stars"></div>
 
-<!-- LÍNEA CONECTORA DE MAPA NEÓN -->
+<!-- LÍNEA CONECTORA DE MAPA ULTRA NEÓN -->
 <div class="map-progress-container">
     <div class="map-line-bg"></div>
     <div class="map-line-fill" id="mapLine"></div>
@@ -696,23 +733,21 @@ function onYouTubeIframeAPIReady(){
 }
 
 function abrirCarta(){
-    // Activamos la transición agregando la clase al body
-    document.body.classList.add('pagina-activa');
-    fuegosActivos = false; // Detiene el motor de fuegos artificiales para optimizar rendimiento
+    document.body.classList.add('pagina-active');
+    document.body.className = 'pagina-activa';
+    fuegosActivos = false; 
     
-    // Scroll suave a la intro
     setTimeout(() => {
         document.getElementById('intro').scrollIntoView();
     }, 400);
 
-    // Reproduce la música de YouTube
     if(player && typeof player.playVideo === 'function') {
         player.playVideo(); 
     }
 }
 
 
-/* ================= MOTOR PRO DE FUEGOS ARTIFICIALES ULTRA REALISTAS ================= */
+/* ================= MOTOR AVANZADO: FUEGOS ARTIFICIALES CHINOS GIGANTES ================= */
 const canvas = document.getElementById('fireworksCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -724,16 +759,19 @@ window.addEventListener('resize', resizeCanvas);
 resizeCanvas();
 
 class Particle {
-    constructor(x, y, color, speedX, speedY) {
+    constructor(x, y, color, speedX, speedY, isChineseStyle = false) {
         this.x = x;
         this.y = y;
         this.color = color;
-        this.radius = Math.random() * 2.5 + 1;
+        // Los fuegos chinos tienen chispas de tamaños variados
+        this.radius = isChineseStyle ? (Math.random() * 3.5 + 1.5) : (Math.random() * 2 + 1);
         this.velocity = { x: speedX, y: speedY };
         this.alpha = 1;
-        this.decay = Math.random() * 0.012 + 0.008;
-        this.gravity = 0.06; 
-        this.friction = 0.98; // Resistencia al aire realista
+        // El estilo chino permanece flotando un poco más en el cielo (sauce llorón)
+        this.decay = isChineseStyle ? (Math.random() * 0.007 + 0.005) : (Math.random() * 0.012 + 0.009);
+        this.gravity = isChineseStyle ? 0.04 : 0.06; 
+        this.friction = isChineseStyle ? 0.96 : 0.98; 
+        this.isChineseStyle = isChineseStyle;
     }
 
     draw() {
@@ -742,9 +780,11 @@ class Particle {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         ctx.fillStyle = this.color;
-        // Brillo neón real en las partículas
-        ctx.shadowBlur = 12;
+        
+        // Brillo Neón Ultra Radiante
+        ctx.shadowBlur = this.isChineseStyle ? 20 : 10;
         ctx.shadowColor = this.color;
+        
         ctx.fill();
         ctx.restore();
     }
@@ -765,21 +805,25 @@ function launchFirework() {
     if (!fuegosActivos) return;
 
     const x = Math.random() * canvas.width;
-    const y = Math.random() * (canvas.height * 0.5) + (canvas.height * 0.1);
+    // Se lanzan bien alto en el cielo de la pantalla
+    const y = Math.random() * (canvas.height * 0.4) + (canvas.height * 0.08);
     
-    // Paleta Neón limpia de tus colores
-    const colors = ['#ff4f81', '#ff1493', '#ff7ca8', '#e8d7ff', '#ffffb3', '#00ffff'];
+    const colors = ['#ff0055', '#ff5599', '#00ffff', '#ffff33', '#ff00ff', '#ffffff', '#ff9900'];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
 
-    const particleCount = Math.floor(Math.random() * 30) + 40;
+    // Alternar aleatoriamente entre fuego chino gigante y una explosión estándar
+    const esChinoGigante = Math.random() > 0.4;
+    const particleCount = esChinoGigante ? (Math.floor(Math.random() * 60) + 70) : (Math.floor(Math.random() * 25) + 30);
     
     for (let i = 0; i < particleCount; i++) {
         const angle = Math.random() * Math.PI * 2;
-        const speed = Math.random() * 7 + 2;
+        // Los chinos gigantes tienen un empuje inicial circular mucho más potente
+        const speed = esChinoGigante ? (Math.random() * 11 + 3) : (Math.random() * 6 + 2);
+        
         const speedX = Math.cos(angle) * speed;
         const speedY = Math.sin(angle) * speed;
         
-        particlesArray.push(new Particle(x, y, randomColor, speedX, speedY));
+        particlesArray.push(new Particle(x, y, randomColor, speedX, speedY, esChinoGigante));
     }
 }
 
@@ -789,8 +833,7 @@ function animateFireworks() {
         return;
     }
     
-    // Rastro semi-transparente para dar efecto de estela de luz realista
-    ctx.fillStyle = 'rgba(10, 5, 13, 0.15)';
+    ctx.fillStyle = 'rgba(5, 2, 6, 0.18)'; // Mantiene las estelas oscuras de forma limpia
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     particlesArray = particlesArray.filter(p => p.alpha > 0);
@@ -802,9 +845,9 @@ function animateFireworks() {
     requestAnimationFrame(animateFireworks);
 }
 
-// Iniciar fuegos artificiales inmediatos en la intro
 animateFireworks();
-setInterval(launchFirework, 700);
+// Intervalo perfecto para que el cielo se vea lleno pero ordenado
+setInterval(launchFirework, 600);
 
 
 /* ================= DETECTAR SCROLL PARA LA LÍNEA DINÁMICA DEL MAPA ================= */
@@ -816,7 +859,7 @@ window.addEventListener('scroll', () => {
 });
 
 
-/* ================= CONTADOR ULTRA COMPLETO HASTA SEGUNDOS EN TIEMPO REAL ================= */
+/* ================= CONTADOR ULTRA COMPLETO EN TIEMPO REAL ================= */
 function actualizarContadorExacto(){
     const fechaInicio = new Date("2021-07-15T00:00:00");
     const ahora = new Date();
@@ -841,18 +884,18 @@ function actualizarContadorExacto(){
     }
     
     let horas = ahora.getHours() - fechaInicio.getHours();
-    let minutos = ahora.getMinutes() - fechaInicio.getMinutes();
+    let minutes = ahora.getMinutes() - fechaInicio.getMinutes();
     let segundos = ahora.getSeconds() - fechaInicio.getSeconds();
     
-    if (segundos < 0) { segundos += 60; minutos--; }
-    if (minutos < 0) { minutos += 60; horas--; }
+    if (segundos < 0) { segundos += 60; minutes--; }
+    if (minutes < 0) { minutes += 60; horas--; }
     if (horas < 0) { horas += 24; dias--; }
 
     document.getElementById("c-anos").innerText = anos;
     document.getElementById("c-meses").innerText = meses;
     document.getElementById("c-dias").innerText = dias;
     document.getElementById("c-horas").innerText = horas < 10 ? '0' + horas : horas;
-    document.getElementById("c-minutos").innerText = minutos < 10 ? '0' + minutos : minutos;
+    document.getElementById("c-minutos").innerText = minutes < 10 ? '0' + minutes : minutes;
     document.getElementById("c-segundos").innerText = segundos < 10 ? '0' + segundos : segundos;
     
     document.getElementById("totalDiasText").innerHTML = `💕 Más de ${totalDias} días amándote al máximo`;
@@ -917,7 +960,6 @@ function crearCorazon(){
     document.body.appendChild(corazon);
     setTimeout(() => { corazon.remove(); }, 8000);
 }
-// Los corazones corren desde el inicio en segundo plano
 setInterval(crearCorazon, 300);
 </script>
 
