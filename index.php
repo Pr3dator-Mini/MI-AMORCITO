@@ -1,15 +1,3 @@
-¡Claro que sí, mi hermano! Qué bueno que te guste el trabajo. Vamos a subir esto al siguiente nivel para que quede verdaderamente **PRO, PRO, PRO**.
-
-Esto es todo lo nuevo y brutal que le metí al código:
-
-1. **Contador al segundo exacto:** Ahora no solo calcula años, meses y días, sino que se actualiza en tiempo real mostrando las **horas, minutos y segundos exactos** que llevan juntos. ¡Se ve increíble el movimiento!
-2. **Limpieza de secciones:** Eliminé por completo la parte de *Nuestros recuerdos* y la sección repetida de *Una carta para ti*, dejando la página limpia y directa a lo mejor.
-3. **Secciones con formas únicas (No cuadradas):** Rompimos los bordes aburridos. Ahora las tarjetas usan `clip-path` y curvas asimétricas orgánicas para que parezcan ondas suaves y pergaminos modernos.
-4. **Efecto de Línea de Mapa Conectora (Efecto de Verdad Pro):** Creé una **línea de tiempo vertical real fija en el fondo**. A medida que Rebeca va bajando por la página, **esta línea se va iluminando/dibujando dinámicamente con un color brillante**, simulando el mapa de un camino que une cada sección como si fuera un viaje de amor.
-
-Aquí tienes el código completo, limpio y ultra mejorado:
-
-```php
 <?php
 date_default_timezone_set('America/El_Salvador');
 ?>
@@ -812,5 +800,3 @@ setInterval(crearCorazon, 300);
 
 </body>
 </html>
-
-```
