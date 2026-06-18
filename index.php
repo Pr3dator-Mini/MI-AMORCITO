@@ -4,6 +4,7 @@ date_default_timezone_set('America/El_Salvador');
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,13 +13,16 @@ date_default_timezone_set('America/El_Salvador');
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
-*{
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+  *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
 }
 
 html{
@@ -26,295 +30,947 @@ scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(135deg,#ffb6c1,#ffd6e7,#e8d5ff);
+
+font-family:'Poppins',sans-serif;
+background:
+linear-gradient(135deg,#ff9ec7,#ffd6e7,#e8d7ff);
+
 overflow-x:hidden;
 color:white;
+position:relative;
+
 }
 
-/* Corazones flotando */
 
-.heart{
+/* ================= ESTRELLAS ================= */
+
+.stars{
+
 position:fixed;
-bottom:-50px;
-font-size:25px;
-animation:subir 8s linear infinite;
+top:0;
+left:0;
+width:100%;
+height:100%;
 pointer-events:none;
 z-index:0;
-}
 
-@keyframes subir{
+background-image:
 
-0%{
-transform:translateY(0);
-opacity:1;
-}
+radial-gradient(white 1px, transparent 1px),
+radial-gradient(white 1px, transparent 1px);
 
-100%{
-transform:translateY(-120vh);
-opacity:0;
-}
+background-size:80px 80px;
+
+opacity:.2;
 
 }
 
-/* Portada */
+
+/* ================= HERO ================= */
 
 .hero{
 
 min-height:100vh;
+
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
+
 padding:30px;
-text-align:center;
+
 position:relative;
 z-index:2;
 
 }
 
-.hero h1{
 
-font-size:60px;
-margin-bottom:20px;
-text-shadow:0 0 20px rgba(255,255,255,.4);
+/* ================= SOBRE ================= */
 
-}
+.envelope{
 
-.hero h2{
-
-font-size:30px;
-font-weight:300;
-margin-bottom:25px;
-
-}
-
-.hero p{
-
-max-width:800px;
-font-size:20px;
-line-height:1.9;
-
-}
-
-.boton{
-
-margin-top:40px;
-padding:18px 35px;
-border:none;
-border-radius:50px;
 background:white;
+
+padding:50px;
+
+width:340px;
+
+border-radius:30px;
+
+box-shadow:
+0 25px 60px rgba(0,0,0,.2);
+
 color:#ff4f81;
-font-size:20px;
+
+animation:flotar 3s ease-in-out infinite;
+
+text-align:center;
+
+}
+
+
+@keyframes flotar{
+
+50%{
+transform:translateY(-12px);
+}
+
+}
+
+
+.letter h1{
+
+font-size:50px;
+font-family:'Great Vibes',cursive;
+
+}
+
+
+.letter h2{
+
+font-size:28px;
+font-weight:500;
+
+}
+
+
+.letter h3{
+
+font-size:18px;
+color:#999;
+
+}
+
+
+.mini{
+
+font-size:14px;
+color:#ff7ca8;
+
+}
+
+
+/* ================= BOTÓN PRINCIPAL ================= */
+
+.open-btn{
+
+margin-top:30px;
+
+border:none;
+
+padding:18px 35px;
+
+border-radius:50px;
+
 cursor:pointer;
+
+font-size:18px;
+
+background:#ff4f81;
+
+color:white;
+
 transition:.4s;
 
 }
 
-.boton:hover{
+
+.open-btn:hover{
 
 transform:scale(1.08);
 
 }
 
-/* Secciones */
 
-.seccion{
+/* ================= SECCIONES ================= */
+
+.section{
 
 padding:100px 25px;
+
+position:relative;
+z-index:2;
+
+}
+
+
+.title{
+
+font-size:50px;
+
+text-align:center;
+
+margin-bottom:40px;
+
+font-family:'Great Vibes',cursive;
+
+}
+
+
+/* ================= TARJETAS ================= */
+
+.card{
+
+max-width:950px;
+
+margin:auto;
+
+padding:40px;
+
+border-radius:30px;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(15px);
+
+line-height:2;
+
+font-size:20px;
+
+box-shadow:
+0 15px 40px rgba(0,0,0,.15);
+
+}
+
+
+/* ================= CONTADOR ================= */
+
+.contador-card{
+
 text-align:center;
 
 }
 
-.titulo{
+
+#contador{
+
+font-size:32px;
+
+font-weight:bold;
+
+line-height:2;
+
+}
+
+
+/* ================= MAPA DEL AMOR ================= */
+
+.timeline{
+
+max-width:700px;
+
+margin:auto;
+
+display:flex;
+
+flex-direction:column;
+
+gap:25px;
+
+}
+
+
+.timeline-item{
+
+padding:25px;
+
+background:rgba(255,255,255,.18);
+
+border-radius:20px;
+
+cursor:pointer;
+
+font-size:22px;
+
+text-align:center;
+
+transition:.4s;
+
+}
+
+
+.timeline-item:hover{
+
+transform:scale(1.03);
+
+background:rgba(255,255,255,.3);
+
+}
+
+
+.recuerdo{
+
+margin-top:40px;
+
+text-align:center;
+
+}
+
+
+/* ================= FRASES ================= */
+
+#frases{
+
+font-size:28px;
+
+text-align:center;
+
+min-height:100px;
+
+}
+
+
+/* ================= MENSAJE SECRETO ================= */
+
+#mensajeSecreto{
+
+display:none;
+
+font-size:28px;
+
+line-height:2;
+
+text-align:center;
+
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+.title{
+
+font-size:40px;
+
+}
+
+.card{
+
+font-size:18px;
+
+padding:30px;
+
+}
+
+.letter h1{
+
+font-size:42px;
+
+}
+
+}
+  /* ================= GALERÍA ================= */
+
+.gallery{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+max-width:1000px;
+margin:auto;
+
+}
+
+.photo-card{
+
+overflow:hidden;
+border-radius:25px;
+
+background:rgba(255,255,255,.15);
+
+backdrop-filter:blur(12px);
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.15);
+
+transition:.5s;
+
+}
+
+.photo-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.photo-card img{
+
+width:100%;
+height:320px;
+object-fit:cover;
+display:block;
+
+}
+
+
+/* ================= CAJAS SORPRESA ================= */
+
+.gift-container{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+
+}
+
+.gift-box{
+
+width:120px;
+height:120px;
+
+display:flex;
+justify-content:center;
+align-items:center;
 
 font-size:50px;
+
+border-radius:25px;
+
+cursor:pointer;
+
+background:rgba(255,255,255,.18);
+
+backdrop-filter:blur(15px);
+
+transition:.4s;
+
+box-shadow:
+0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.gift-box:hover{
+
+transform:scale(1.1);
+
+}
+
+
+/* ================= BOTÓN SECRETO ================= */
+
+.secret-btn{
+
+padding:18px 35px;
+
+border:none;
+
+border-radius:50px;
+
+cursor:pointer;
+
+font-size:20px;
+
+background:#ff4f81;
+
+color:white;
+
+transition:.4s;
+
+}
+
+.secret-btn:hover{
+
+transform:scale(1.08);
+
+}
+
+
+/* ================= FINAL ================= */
+
+.final-section{
+
+padding-bottom:180px;
+
+}
+
+.final-title{
+
+text-align:center;
+
+font-size:60px;
+
+font-family:'Great Vibes',cursive;
+
 margin-bottom:40px;
 
 }
 
-.tarjeta{
 
-max-width:950px;
-margin:auto;
-padding:40px;
-border-radius:30px;
-background:rgba(255,255,255,.15);
-backdrop-filter:blur(12px);
-line-height:2;
-font-size:20px;
+/* ================= CORAZONES ================= */
+
+.heart{
+
+position:fixed;
+
+bottom:-50px;
+
+pointer-events:none;
+
+z-index:1;
+
+animation:subir 8s linear forwards;
 
 }
 
+@keyframes subir{
+
+0%{
+
+transform:
+translateY(0)
+rotate(0deg);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:
+translateY(-120vh)
+rotate(360deg);
+
+opacity:0;
+
+}
+
+}
+
+
+/* ================= YOUTUBE OCULTO ================= */
+
+#youtube-player{
+
+position:fixed;
+left:-9999px;
+
+}
+
+
+/* ================= SCROLLBAR ================= */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#ffd6e7;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#ff4f81;
+border-radius:20px;
+
+}
+
+
+/* ================= EFECTO APARICIÓN ================= */
+
+.card,
+.timeline-item,
+.photo-card,
+.gift-box{
+
+animation:fadeIn 1.2s ease;
+
+}
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+
+/* ================= RESPONSIVE EXTRA ================= */
+
+@media(max-width:768px){
+
+.final-title{
+
+font-size:45px;
+
+}
+
+.gift-box{
+
+width:100px;
+height:100px;
+
+font-size:40px;
+
+}
+
+.photo-card img{
+
+height:260px;
+
+}
+
+}
 </style>
 </head>
-
 <body>
 
-<audio autoplay loop>
-<source src="Miranda! - Perfecta (Video Oficial).mp3" type="audio/mpeg">
-</audio>
+<!-- ESTRELLAS -->
+<div class="stars"></div>
 
-<div class="hero">
+<!-- CORAZONES -->
+<div id="heart-container"></div>
 
-<h1>❤️ Para mi princesa Rebeca ❤️</h1>
 
-<h2>🌷 Tengo algo especial para ti 🌷</h2>
+<!-- ================= HERO ================= -->
 
-<p>
+<section class="hero">
 
-Desde el fondo de mi corazón preparé esta pequeña sorpresa para recordarte cuánto te amo, cuánto significas para mí y lo feliz que me hace tenerte en mi vida. ❤️🥹
+    <div class="envelope">
 
-</p>
+        <div class="letter">
 
-<button class="boton"
-onclick="document.getElementById('carta').scrollIntoView()">
+            <span class="mini">💌 Carta Especial</span>
 
-✨ Abrir mi sorpresa ✨
+            <h3>Para:</h3>
+            <h1>Rebeca ❤️</h1>
 
-</button>
+            <br>
 
-</div>
-<!-- ================= CARTA ================= -->
+            <h3>De:</h3>
+            <h2>Paul ❤️</h2>
 
-<section class="seccion" id="carta">
+            <button class="open-btn"
+            onclick="document.getElementById('intro').scrollIntoView()">
 
-<h1 class="titulo">💌 Una carta para ti 💌</h1>
+                Abrir Carta ✨
 
-<div class="tarjeta">
+            </button>
 
-<p>
+        </div>
 
-Muy buenos días, mi niña linda ❤️🌷
+    </div>
 
-<br><br>
+</section>
 
-Espero que hayas descansado bien 😴💖 y que hoy te despiertes con una gran sonrisa 😊✨, porque te mereces comenzar cada día siendo feliz 🌞💞.
 
-<br><br>
+<!-- ================= INTRO ================= -->
 
-Quería escribirte desde temprano 🌅 para recordarte lo mucho que te amo ❤️🥰 y lo agradecido que me siento por tenerte en mi vida 🙏🏻💝.
+<section class="section" id="intro">
 
-<br><br>
+    <h2 class="title">
+        🌹 Una sorpresa para ti 🌹
+    </h2>
 
-Magine mi mocito linda 💕🥹, todavía me emociona pensar en todo lo que hemos vivido juntos 🫶🏻❤️ y en lo especial que eres para mí ✨💖.
+    <div class="card">
 
-<br><br>
+        <p>
 
-Verte cumplir 22 años 🎂🎉 me hace sentir orgulloso de la gran mujer en la que te has convertido 🌹🥰.
+        Mi princesa hermosa ❤️
 
-<br><br>
+        <br><br>
 
-Eres una persona increíble 💫, con un corazón hermoso ❤️, y cada día encuentro nuevas razones para admirarte 😍 y enamorarme más de ti 💘.
+        Preparé esta página con mucho amor para recordarte lo importante que eres para mí.
 
-<br><br>
+        <br><br>
 
-Gracias por tu amor ❤️, por tu paciencia 🤗, por tus consejos 🌷, por tus risas 😄💕 y por todos esos pequeños momentos que para mí significan muchísimo 🥹💖.
+        Quiero que cada sección sea como abrir un pequeño regalo lleno de recuerdos, sentimientos y palabras sinceras.
 
-<br><br>
+        <br><br>
 
-Contigo he aprendido que el amor se demuestra en los detalles 🌹, en el apoyo 🤝🏻❤️ y en estar presentes el uno para el otro 🫂💞.
+        Gracias por existir, gracias por tu amor y gracias por permitirme compartir mi vida contigo.
 
-<br><br>
+        <br><br>
 
-Y aunque quizás no te lo diga todos los días de la manera en que debería 🥹❤️, quiero que nunca dudes de lo importante que eres para mí 💖✨.
+        ✨ Te amo muchísimo ✨
 
-<br><br>
+        </p>
 
-Eres mi novia 💕, mi compañera 🫶🏻, mi princesa hermosa 👑❤️ y una de las mayores bendiciones que tengo 🙏🏻🥰.
-
-<br><br>
-
-Te amo muchísimo, mi princesa hermosa. ❤️✨👑💕
-
-</p>
-
-</div>
+    </div>
 
 </section>
 
 
 <!-- ================= CUMPLEAÑOS ================= -->
 
-<section class="seccion">
+<section class="section">
 
-<h1 class="titulo">🎂 ¡Felices 22 años! 🎂</h1>
+    <h2 class="title">
+        🎂 Felices 22 años 🎂
+    </h2>
 
-<div class="tarjeta">
+    <div class="card">
 
-<h2 style="margin-bottom:25px;">
-🌷 Ya 22 añitos, qué bendición tan hermosa 🌷
+        <p>
+
+        Hoy celebro la vida de una mujer maravillosa.
+
+        <br><br>
+
+        Deseo que Jehová te bendiga siempre y que todos tus sueños se hagan realidad.
+
+        <br><br>
+
+        Gracias por ser una persona tan hermosa por dentro y por fuera.
+
+        <br><br>
+
+        ❤️ Estoy orgulloso de ti ❤️
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTADOR ================= -->
+
+<section class="section">
+
+    <h2 class="title">
+        ⏳ Nuestro tiempo juntos ⏳
+    </h2>
+
+    <div class="card contador-card">
+
+        <div id="contador">
+
+            Cargando...
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= MAPA DEL AMOR ================= -->
+
+<section class="section">
+
+<h2 class="title">
+🗺️ Nuestro mapa del amor ❤️
 </h2>
 
-<p>
+<div class="timeline">
 
-Hoy celebro tu vida con muchísima alegría ❤️🥹.
+    <div class="timeline-item"
+    onclick="abrirRecuerdo(1)">
 
-<br><br>
+        ❤️ Nos conocimos
 
-Gracias por existir, por ser la mujer maravillosa que eres y por permitirme compartir contigo tantos momentos bonitos.
+    </div>
 
-<br><br>
+    <div class="timeline-item"
+    onclick="abrirRecuerdo(2)">
 
-Deseo que todos tus sueños se hagan realidad ✨🌷, que nunca te falten motivos para sonreír 😊💕 y que cada nuevo año de vida esté lleno de amor, paz y felicidad.
+        🌷 Primeras conversaciones
 
-<br><br>
+    </div>
 
-Estoy muy orgulloso de ti y de todo lo que has logrado. ❤️
+    <div class="timeline-item"
+    onclick="abrirRecuerdo(3)">
 
-</p>
+        🥰 Primer "Te Amo"
+
+    </div>
+
+    <div class="timeline-item"
+    onclick="abrirRecuerdo(4)">
+
+        💍 Nuestro futuro juntos
+
+    </div>
+
+</div>
+
+<div class="card recuerdo"
+id="recuerdoTexto">
+
+Presiona un recuerdo ❤️
+
+</div>
+
+</section>
+<!-- ================= GALERÍA ================= -->
+
+<section class="section">
+
+    <h2 class="title">
+        📸 Nuestros recuerdos 📸
+    </h2>
+
+    <div class="gallery">
+
+        <!-- CAMBIA ESTAS IMÁGENES POR LAS TUYAS -->
+
+        <div class="photo-card">
+            <img src="foto1.jpg">
+        </div>
+
+        <div class="photo-card">
+            <img src="foto2.jpg">
+        </div>
+
+        <div class="photo-card">
+            <img src="foto3.jpg">
+        </div>
+
+        <div class="photo-card">
+            <img src="foto4.jpg">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CARTA ================= -->
+
+<section class="section">
+
+    <h2 class="title">
+        💌 Una carta para ti 💌
+    </h2>
+
+    <div class="card">
+
+        <p>
+
+        Muy buenos días mi princesa hermosa ❤️
+
+        <br><br>
+
+        Espero que hayas descansado bien y que hoy tengas un día lleno de alegría.
+
+        <br><br>
+
+        Quería recordarte cuánto te amo y cuánto agradezco tenerte en mi vida.
+
+        <br><br>
+
+        Gracias por tu paciencia, por tus consejos, por tus risas y por cada momento hermoso que hemos compartido.
+
+        <br><br>
+
+        Verte cumplir 22 años me hace sentir muy orgulloso de la gran mujer en la que te has convertido.
+
+        <br><br>
+
+        Eres una bendición para mí.
+
+        <br><br>
+
+        ❤️ Te amo muchísimo ❤️
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SORPRESAS ================= -->
+
+<section class="section">
+
+<h2 class="title">
+🎁 Cajas sorpresa 🎁
+</h2>
+
+<div class="gift-container">
+
+    <div class="gift-box"
+    onclick="abrirCaja(1)">
+        ❤️
+    </div>
+
+    <div class="gift-box"
+    onclick="abrirCaja(2)">
+        🌹
+    </div>
+
+    <div class="gift-box"
+    onclick="abrirCaja(3)">
+        ✨
+    </div>
+
+</div>
+
+<div class="card"
+id="mensajeCaja">
+
+Presiona una cajita 🎁
 
 </div>
 
 </section>
 
 
-<!-- ================= JEHOVÁ ================= -->
+<!-- ================= FRASES ================= -->
 
-<section class="seccion">
+<section class="section">
 
-<h1 class="titulo">🙏 Una oración para ti 🙏</h1>
+<h2 class="title">
+🌷 Algunas cosas que pienso de ti 🌷
+</h2>
 
-<div class="tarjeta">
+<div class="card">
 
-<p>
+    <div id="frases">
 
-Deseo de todo corazón ❤️🙏🏻 que Jehová te bendiga, te cuide 🕊️❤️ y te conceda muchos momentos bonitos 🌸😊.
+        ❤️ Eres una bendición en mi vida.
 
-<br><br>
-
-Que te ayude a cumplir tus metas 🌷✨, que te regale salud, alegría y que siempre puedas sentir su amor y protección.
-
-<br><br>
-
-Quiero verte cumplir muchos sueños 🌟💫, seguir creciendo 🌷 y seguir sonriendo como solo tú sabes hacerlo 😊💕
-
-</p>
+    </div>
 
 </div>
 
 </section>
-<!-- ================= TIEMPO JUNTOS ================= -->
 
-<section class="seccion">
 
-<h1 class="titulo">❤️ Nuestro Amor Desde 15 de Julio de 2021 ❤️</h1>
+<!-- ================= ORACIÓN ================= -->
 
-<div class="tarjeta">
+<section class="section">
 
-<h2 style="margin-bottom:25px;">
-⏳ Todo este tiempo a tu lado ha sido una bendición ⏳
+<h2 class="title">
+🙏 Una oración para ti 🙏
 </h2>
 
-<div id="contador"
-style="
-font-size:32px;
-line-height:2;
-font-weight:bold;
-">
+<div class="card">
 
-Cargando...
+<p>
 
-</div>
+Deseo de todo corazón que Jehová te cuide, te bendiga y te ayude a cumplir todos tus sueños.
+
+<br><br>
+
+Que nunca te falte salud, alegría y motivos para sonreír.
+
+<br><br>
+
+Y que siempre puedas sentir cuánto te aman las personas que te rodean.
+
+<br><br>
+
+❤️🌷🙏
+
+</p>
 
 </div>
 
@@ -323,35 +979,30 @@ Cargando...
 
 <!-- ================= BOTÓN SECRETO ================= -->
 
-<section class="seccion">
+<section class="section">
 
-<h1 class="titulo">🎁 Tengo algo más para ti 🎁</h1>
+<h2 class="title">
+❤️ Tengo algo más para ti ❤️
+</h2>
 
-<div class="tarjeta">
+<div class="card">
 
 <p>
 
-Si alguna vez dudas de cuánto te amo, presiona este botón ❤️🥹
+Si alguna vez dudas de cuánto te amo...
 
 </p>
 
 <br>
 
-<button class="boton" onclick="mostrarMensaje()">
+<button class="secret-btn"
+onclick="mostrarMensaje()">
 
-❤️ Presióname ❤️
+Presióname ❤️
 
 </button>
 
-<div id="mensajeSecreto"
-style="
-display:none;
-margin-top:40px;
-font-size:30px;
-line-height:2;
-">
-
-💕 Te amo más de lo que las palabras pueden explicar 💕
+<div id="mensajeSecreto">
 
 <br><br>
 
@@ -361,29 +1012,9 @@ line-height:2;
 
 🌷 Gracias por existir.
 
-</div>
+<br><br>
 
-</div>
-
-</section>
-
-
-<!-- ================= FRASES QUE CAMBIAN ================= -->
-
-<section class="seccion">
-
-<h1 class="titulo">🌹 Algunas cosas que pienso de ti 🌹</h1>
-
-<div class="tarjeta">
-
-<div id="frases"
-style="
-font-size:28px;
-line-height:2;
-min-height:100px;
-">
-
-❤️ Eres una bendición en mi vida.
+❤️ Te amo más de lo que las palabras pueden explicar.
 
 </div>
 
@@ -392,70 +1023,49 @@ min-height:100px;
 </section>
 
 
-<!-- ================= MENSAJE FINAL ================= -->
+<!-- ================= FINAL ================= -->
 
-<section class="seccion">
+<section class="section final-section">
 
-<h1 class="titulo">👑 Para siempre tú 👑</h1>
+<h1 class="final-title">
 
-<div class="tarjeta">
+🌙 Bajo las estrellas ✨
+
+</h1>
+
+<div class="card">
+
+<h2>
+
+Rebeca ❤️
+
+</h2>
+
+<br>
 
 <p>
 
-Cuídate mocito 🌷💖.
+Gracias por llegar a mi vida.
 
 <br><br>
 
-Sonríe mucho 😊💕 y recuerda que aquí hay alguien que piensa en ti 💭❤️.
+Gracias por todos los recuerdos que hemos creado juntos.
 
 <br><br>
 
-Alguien que te extraña cuando no está contigo 🥹💞.
+Gracias por permitirme amarte.
 
 <br><br>
 
-Alguien que agradece a Jehová por tu vida 🙏🏻❤️.
+Espero seguir construyendo muchos sueños contigo.
 
 <br><br>
 
-Y alguien que te ama con todo su corazón ❤️🥰.
-
-<br><br><br>
-
-❤️✨ Te amo muchísimo, mi princesa hermosa. ✨❤️
-
-</p>
-
-</div>
-
-</section>
-<!-- ================= CIELO ESTRELLADO ================= -->
-
-<section class="seccion" style="padding-bottom:150px;">
-
-<h1 class="titulo">🌙 Bajo las estrellas ✨</h1>
-
-<div class="tarjeta">
-
-<h2 style="margin-bottom:25px;">
-❤️ Rebeca ❤️
-</h2>
-
-<p style="line-height:2;">
-
-Gracias por estar en mi vida. 🌷
+✨ Para siempre tú ✨
 
 <br><br>
 
-Eres una de las mayores bendiciones que Jehová me ha regalado. 🙏🏻❤️
-
-<br><br>
-
-Espero seguir creando muchos recuerdos hermosos contigo. 🥹💕
-
-<br><br>
-
-🎂 Felices 22 años, mi princesa hermosa 👑❤️
+❤️ Con amor, Paul ❤️
 
 </p>
 
@@ -463,6 +1073,36 @@ Espero seguir creando muchos recuerdos hermosos contigo. 🥹💕
 
 </section>
 
+
+
+<!-- YOUTUBE -->
+<div id="youtube-player"></div>
+
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+<script>
+let player;
+
+function onYouTubeIframeAPIReady(){
+
+player = new YT.Player('youtube-player',{
+
+height:'0',
+width:'0',
+
+videoId:'a3hOeU7w59o',
+
+playerVars:{
+autoplay:1,
+loop:1,
+playlist:'a3hOeU7w59o'
+}
+
+});
+
+}
+</script>
 <script>
 
 /* ================= CONTADOR ================= */
@@ -475,20 +1115,98 @@ const ahora = new Date();
 let diferencia = ahora - fechaInicio;
 
 let dias = Math.floor(diferencia / (1000*60*60*24));
+
 let años = Math.floor(dias / 365);
-let meses = Math.floor((dias % 365) / 30);
-let diasRestantes = (dias % 365) % 30;
+let meses = Math.floor((dias % 365)/30);
+let diasRestantes = (dias % 365)%30;
 
 document.getElementById("contador").innerHTML = `
-❤️ ${años} años<br>
-🌷 ${meses} meses<br>
-💕 ${diasRestantes} días<br>
-🥹 Más de ${dias} días amándote
+
+❤️ ${años} años <br>
+🌷 ${meses} meses <br>
+🥹 ${diasRestantes} días <br><br>
+
+💕 Más de ${dias} días amándote
+
 `;
 
 }
 
 actualizarContador();
+
+
+/* ================= MAPA DEL AMOR ================= */
+
+function abrirRecuerdo(numero){
+
+const caja = document.getElementById("recuerdoTexto");
+
+if(numero === 1){
+
+caja.innerHTML = `
+❤️ Ese día comenzó una historia hermosa entre nosotros.
+`;
+
+}
+
+if(numero === 2){
+
+caja.innerHTML = `
+🌷 Poco a poco nuestras conversaciones se volvieron especiales.
+`;
+
+}
+
+if(numero === 3){
+
+caja.innerHTML = `
+🥰 Aquel "Te amo" siempre ocupará un lugar especial en mi corazón.
+`;
+
+}
+
+if(numero === 4){
+
+caja.innerHTML = `
+💍 Sueño con seguir construyendo un futuro hermoso contigo.
+`;
+
+}
+
+}
+
+
+/* ================= CAJAS SORPRESA ================= */
+
+function abrirCaja(numero){
+
+const mensaje = document.getElementById("mensajeCaja");
+
+if(numero === 1){
+
+mensaje.innerHTML = `
+❤️ Gracias por existir.
+`;
+
+}
+
+if(numero === 2){
+
+mensaje.innerHTML = `
+🌹 Eres una bendición en mi vida.
+`;
+
+}
+
+if(numero === 3){
+
+mensaje.innerHTML = `
+✨ Me enamoro más de ti cada día.
+`;
+
+}
+
+}
 
 
 /* ================= BOTÓN SECRETO ================= */
@@ -500,16 +1218,16 @@ document.getElementById("mensajeSecreto").style.display = "block";
 }
 
 
-/* ================= FRASES ROMÁNTICAS ================= */
+/* ================= FRASES ================= */
 
-const listaFrases = [
+const frases = [
 
 "❤️ Eres una bendición en mi vida.",
 "🌷 Gracias por tu amor.",
 "🥹 Gracias por tu paciencia.",
 "💕 Tu sonrisa alegra mis días.",
 "👑 Eres mi princesa hermosa.",
-"🙏🏻 Jehová te bendiga siempre.",
+"🙏 Jehová te bendiga siempre.",
 "❤️ Me enamoro más de ti cada día.",
 "🌹 Gracias por existir."
 
@@ -521,16 +1239,19 @@ setInterval(() => {
 
 indice++;
 
-if(indice >= listaFrases.length){
+if(indice >= frases.length){
+
 indice = 0;
+
 }
 
-document.getElementById("frases").innerHTML = listaFrases[indice];
+document.getElementById("frases").innerHTML =
+frases[indice];
 
-}, 4000);
+},4000);
 
 
-/* ================= CORAZONES FLOTANDO ================= */
+/* ================= CORAZONES ================= */
 
 function crearCorazon(){
 
@@ -540,19 +1261,22 @@ corazon.classList.add("heart");
 
 corazon.innerHTML = "❤️";
 
-corazon.style.left = Math.random() * 100 + "vw";
+corazon.style.left = Math.random()*100 + "vw";
 
-corazon.style.fontSize = (20 + Math.random() * 30) + "px";
+corazon.style.fontSize =
+(20 + Math.random()*30) + "px";
 
 document.body.appendChild(corazon);
 
 setTimeout(() => {
+
 corazon.remove();
-}, 8000);
+
+},8000);
 
 }
 
-setInterval(crearCorazon, 300);
+setInterval(crearCorazon,300);
 
 </script>
 
